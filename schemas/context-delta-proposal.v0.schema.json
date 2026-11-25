@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aoifuture.com/schemas/aoi-content-intake/context-delta-proposal.v0.json",
+  "title": "aoi.content.context-delta-proposal.v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "axis_slug",
+    "axis_id",
+    "material_url",
+    "corpus_snapshot_id",
+    "proposed_signal_id",
+    "proposed_revision"
+  ],
+  "properties": {
+    "schema_version": { "const": "aoi.content.context-delta-proposal.v0" },
+    "axis_slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+    "axis_id": { "type": "integer", "minimum": 1 },
+    "material_url": { "type": "string", "pattern": "^https://" },
+    "corpus_snapshot_id": { "type": "string" },
+    "proposed_signal_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+    "proposed_revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "changed_at", "change_reason", "resulting_view"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+        "changed_at": { "type": "string" },
+        "change_reason": { "type": "string", "maxLength": 500 },
+        "resulting_view": { "type": "string", "maxLength": 2000 }
+      }
+    }
+  }
+}

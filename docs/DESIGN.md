@@ -1,7 +1,8 @@
-# 技術設計 — aoi-content-intake（v0.1）
+# 技術設計 — aoi-content-intake（v0.2）
 
 **SPEC:** [`SPEC.md`](SPEC.md)  
-**確定日:** 2026-11-25
+**索引:** [`INDEX.md`](INDEX.md)  
+**確定日:** 2026-11-25（v0.2 設計詳細化）
 
 ---
 
@@ -45,7 +46,7 @@
 |------------|------|------------------|
 | **`0xshugo/aoi-content-intake`**（本 repo） | 仕様・JSON Schema・運用契約・バックフィル手順 | 正本 |
 | `0xshugo/dailynews-pipeline` | collect 実装・Note 生成 | `schemas/*` を参照または submodule |
-| `news-worker`（新規・名前 TBD） | News candidate・context delta 生成 | 同上 |
+| `0xshugo/aoi-news-worker`（新規・未作成） | News candidate・context delta 生成 | 同上 |
 | `AOI-Future/aoifuture-web` | `/news`・`/news/context/[slug]` レンダリング | promoter／静的 import |
 | `0xshugo/agent-platform` | `aoi002_news_policy_publisher.py` | 変更は別 PR |
 
@@ -76,7 +77,7 @@
 
 ### 4.1 格納
 
-- **正本:** VPS 上 `~/.hermes/work/material-ledger/` または collect リポ内 `data/ledger/`（単一決定は実装イシュー）。  
+- **正本:** Contabo `/var/lib/orca-control/work/aoi-content-intake/material-ledger/`（[INTERFACES.md](INTERFACES.md)）。  
 - **形式:** `materials.jsonl`（追記）+ `materials-index.sqlite`（任意・高速検索）  
 - **Git:** 日次スナップショットを **別ブランチ or 物件ストア** に export 可（サイズ上限に注意）。
 
@@ -184,10 +185,11 @@
 
 ## 9. 未決（実装前にイシュー化）
 
-1. material-ledger の単一パス（`~/.hermes/work` vs dailynews-pipeline 内）  
-2. context delta の promoter 結線（既存 context v2 設計 `handoffs/active/20261103-0410-aoifuture-news-fsa-e2-design-lock.md` との順序）  
-3. News お昼公開に合わせた Orca timer 名・1 本化  
-4. `news-worker` の GitHub リポ名と VPS デプロイ単位  
+1. ~~material-ledger パス~~ → `/var/lib/orca-control/work/aoi-content-intake/`（v0.2 確定）  
+2. context delta の promoter 結線（E2 G4）— v0 は **手動 PR フォールバック** 可（[CONTEXT-STREAM.md](CONTEXT-STREAM.md)）  
+3. News publisher **お昼 1 tick** — [ORCA-SCHEDULE.md](ORCA-SCHEDULE.md)、Exact 待ち  
+4. ~~news-worker リポ名~~ → `0xshugo/aoi-news-worker`（[NEWS-WORKER.md](NEWS-WORKER.md)）  
+5. `aoi_intake` Python パッケージの配置（dailynews-pipeline 内モノレポ vs 別 wheel）  
 
 ---
 

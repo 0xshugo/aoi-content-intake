@@ -8,9 +8,10 @@ DailyNews（Note）と [AOIFUTURE News](https://www.aoifuture.com/news/) は **�
 
 | 項目 | 値 |
 |------|-----|
-| 段階 | 設計確定（2026-11-25）／実装未着手 |
+| 段階 | 設計 v0.2（2026-11-25）／P0 スクリプトあり |
 | 本番 News | 現行 Mac Writer → Contabo publisher 継続（切替前） |
-| 正本ドキュメント | [`docs/SPEC.md`](docs/SPEC.md)（要件）／[`docs/DESIGN.md`](docs/DESIGN.md)（設計） |
+| ドキュメント | [`docs/INDEX.md`](docs/INDEX.md) から辿る |
+| 次リポ | `0xshugo/aoi-news-worker`（未作成） |
 
 ## 関連リポジトリ（参照のみ・本 repo はコードを持たない v0）
 

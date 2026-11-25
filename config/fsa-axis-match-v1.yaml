@@ -1,0 +1,36 @@
+# FSA public axes — v1 keyword matcher (AND within axis: min 2 hits in title+description text)
+# See docs/FSA-AXIS-MAP.md
+version: 1
+axes:
+  - slug: llm-eval-contamination
+    axis_id: 6
+    match_terms: [contamination, benchmark, eval, 汚染, ベンチマーク]
+    min_hits: 2
+  - slug: llm-domain-eval-robustness
+    axis_id: 7
+    match_terms: [domain, robust, evaluation, ドメイン, 頑健]
+    min_hits: 2
+  - slug: genai-provenance-audit
+    axis_id: 8
+    match_terms: [provenance, audit, watermark, 来歴, 監査]
+    min_hits: 2
+  - slug: ai-agent-economy-trust-tradeoff
+    axis_id: 5
+    match_terms: [agent, trust, economy, エージェント, 信頼]
+    min_hits: 2
+  - slug: ai-math-proof-verification
+    axis_id: 3
+    match_terms: [proof, formal, mathematics, 証明, 数学]
+    min_hits: 2
+  - slug: physical-layer-security-genai-covert
+    axis_id: 4
+    match_terms: [physical layer, covert, genai, 物理層]
+    min_hits: 2
+  - slug: llm-structural-limits-eval-validity
+    axis_id: 9
+    match_terms: [structural, limit, validity, 限界, 妥当性]
+    min_hits: 2
+  - slug: multimodal-domain-ai-trends
+    axis_id: 10
+    match_terms: [multimodal, speech, マルチモーダル, 音声]
+    min_hits: 2
