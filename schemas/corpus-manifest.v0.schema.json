@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aoifuture.com/schemas/aoi-content-intake/corpus-manifest.v0.json",
+  "title": "aoi.content.corpus-manifest.v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["snapshot_id", "collect_started_at", "collect_finished_at"],
+  "properties": {
+    "snapshot_id": { "type": "string" },
+    "collect_started_at": { "type": "string" },
+    "collect_finished_at": { "type": "string" },
+    "freshrss_item_count": { "type": "integer", "minimum": 0 },
+    "fsa_axis_count": { "type": "integer", "minimum": 0 },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "code"],
+        "properties": {
+          "source": { "type": "string" },
+          "code": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      }
+    }
+  }
+}
